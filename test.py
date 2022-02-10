@@ -72,11 +72,9 @@ try:
             while True:
                 data = q.get()
                 if rec.AcceptWaveform(data):
-                    #print(rec.Result())
-                    pass
+                    print(rec.Result())
                 else:
-                    #print(rec.PartialResult())
-                    pass
+                    print(rec.PartialResult())
                 if dump_fn is not None:
                     dump_fn.write(data)
 
