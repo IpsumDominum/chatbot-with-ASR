@@ -13,7 +13,6 @@ vosk works much better for me, but perhaps it is because my microphone isn't tha
 Microphone will say "input overflow" and give bad recognition results if sample rate isn't set correctly.
 
 
-
 ```
 python -m venv ASRTest #Create virtual enviornment
 
@@ -24,4 +23,9 @@ python -m pip install -r requirements.txt
 python run.py
 ```
 
+# Using OpenAI GPT3
 
+Specify the open ai key on line 26 in run.py
+```
+chatbot = Chatbot(API_KEY="") #Put openai api key here for openai chatbot. Leave empty for simple chatbot.
+```

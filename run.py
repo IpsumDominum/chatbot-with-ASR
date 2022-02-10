@@ -23,7 +23,7 @@ print("Microphone started")
 #Might have to adjust samplerate if "input overflow" shows up. 
 #set sample_rate = -1 for auto finding default sample rate
 
-chatbot = Chatbot(API_KEY="") #Put your openai api key here for openai chatbot
+chatbot = Chatbot(API_KEY="") #Put openai api key here for openai chatbot. Leave empty for simple chatbot.
 while True:
     if(rec.stopped):
         break
