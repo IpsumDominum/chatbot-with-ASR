@@ -1,5 +1,5 @@
 from recognizers.vosk_recognizer import VoskRecognizer
-from recognizers.stt_recognizer import STTRecognizer
+#from recognizers.stt_recognizer import STTRecognizer
 from streams.microphone import Microphone
 import queue
 import threading
@@ -11,7 +11,8 @@ class Recognizer():
         elif(model_name=="vosk-partial"):
             self.model = VoskRecognizer(model_path,self.mic.sample_rate,use_partial=True)
         elif(model_name=="stt"):
-            self.model = STTRecognizer(model_path,self.mic.sample_rate)  
+            pass
+            #self.model = STTRecognizer(model_path,self.mic.sample_rate)  
         else:            
             raise AttributeError("Please choose from:['vosk','vosk-partial','stt']")
         self.buffer = []
