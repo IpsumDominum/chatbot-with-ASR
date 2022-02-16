@@ -1,7 +1,7 @@
 import os
 import sounddevice as sd
 from asr.recognizer import Recognizer
-from utils import Chatbot
+from asr.chatbot import Chatbot
 import openai
 #-------------------------
 #Coqui-STT (Requires Download Model, See: https://stt.readthedocs.io/en/latest/DEPLOYMENT.html)
@@ -23,15 +23,16 @@ print("Microphone started")
 #Might have to adjust samplerate if "input overflow" shows up. 
 #set sample_rate = -1 for auto finding default sample rate
 
-chatbot = Chatbot(API_KEY="") #Put openai api key here for openai chatbot. Leave empty for simple chatbot.
+chatbot = Chatbot(API_KEY="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") #Put openai api key here for openai chatbot. Leave empty for simple chatbot.
 while True:
     if(rec.stopped):
         break
     else:  
         next = " ".join(rec.get_next())
         if(next!=""):
-            print("Human> "+next)                
+            print("Human> "+next)
             if("exit" in next.lower() or "quit" in next.lower() or "stop" in next.lower()):
                 rec.stop()
             else:
                 print("Ameca> "+chatbot.next_message(next).replace("\n",""))
+                rec.clear_buffer()

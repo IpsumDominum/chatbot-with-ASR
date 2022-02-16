@@ -33,6 +33,8 @@ class Recognizer():
         self.stopped = False
         thread = threading.Thread(target=main_loop)
         thread.start()
+    def clear_buffer(self):
+        self.buffer = []
     def get_next(self):
         if(len(self.buffer)>0):
             return self.buffer.pop()
